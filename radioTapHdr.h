@@ -1,20 +1,14 @@
+//reference: https://www.radiotap.org/
 #pragma once
 
 #include <arpa/inet.h>
-#include "mac.h"
 
 #pragma pack(push, 1)
-struct EthHdr final {
-	Mac dMac;
-	Mac sMac;
-	uint16_t type;
-
-	//type
-	enum: uint16_t {
-		Ip4 = 0x0800,
-		Arp = 0x0806,
-		Ip6 = 0x86DD
-	};
+struct RadioTapHdr final {
+	uint8_t ver;
+	uint8_t pad;
+	uint16_t len;
+	uint32_t present;
 };
-typedef EthHdr *PEthHdr;
+typedef RadioTapHdr *PRadioTapHdr;
 #pragma pack(pop)
