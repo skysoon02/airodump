@@ -1,9 +1,9 @@
 LDLIBS=-lpcap
 
-all: tcp-block
+all: airodump
 
-tcp-block: main.o tcphdr.o iphdr.o ethhdr.o ip.o mac.o
+airodump: main.o radioTapHdr.o IEEE802.11Hdr.o mac.o
 	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 clean:
-	rm -f tcp-block *.o
+	rm -f airodump *.o
