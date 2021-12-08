@@ -5,6 +5,7 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 #include "mac.h"
 #include "IEEE802.11Hdr.h"
@@ -66,8 +67,11 @@ int main(int argc, char* argv[]) {
 				iter->second.Beacons++;
 			}
 			system("clear");
+			printf("%-19s %-9s %-5s\n", "BSSID", "Beacons", "ESSID");
 			for(auto iter : stations){
-				cout << iter.second.BSSID << iter.second.Beacons << iter.second.ESSID << endl;
+				cout << iter.second.BSSID;
+				cout << setw(10) << iter.second.Beacons;
+				cout << "   " << iter.second.ESSID << endl;
 			}
 			continue;
 		}
