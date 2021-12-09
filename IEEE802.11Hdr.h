@@ -17,8 +17,6 @@ struct WifiHdr final {
 	uint16_t duration;
 	Mac addr[3];
 	uint16_t seq;
-		//Receiver Address = BSSID
-		//Destination Address
 	//omit...
     
     uint8_t subType(){ return (ver_type & 0xF0)>>4; };
