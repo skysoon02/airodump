@@ -25,7 +25,7 @@ struct WifiHdr final {
     bool checkData() { return ver_type & 0xFC == Data; }
     bool checkFromAP() { return flag & 0x02 == fromAP; }
     Mac BSSID(){
-    	switch(flag & 0x02 == fromAP){
+    	switch(flag & 0x02){
     		case 0:	return addr[2]; //fromDS=0, toDS=0
     		case 1: return addr[0];	//fromDS=0, toDS=1
     		case 2: return addr[1];	//fromDS=1, toDS=0
